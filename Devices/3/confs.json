@@ -1,0 +1,25 @@
+{
+    "iotJumpWay": {
+        "host": "",
+        "port": 8883,
+        "ip": "localhost",
+        "lid": 0,
+        "zid": 0,
+        "did": 0,
+        "dn": "",
+        "un": "",
+        "pw": ""
+    },
+    "EMAR": {
+        "ip": ""
+    },
+    "TASS": {
+        "server": {
+            "port": 8080
+        },
+        "socket": {
+            "port": 8181
+        },
+        "vid": 0
+    }
+}
