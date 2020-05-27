@@ -9,11 +9,14 @@
 - [Introduction](#introduction)
 - [Required Hardware](#required-hardware)
 - [Prerequisites](#prerequisites)
+    - [HAIS Server](#prerequisites)
+      - [Create HIAS EMAR Device](#create-hias-emar-device)
     - [Ubuntu Server 18.04.4 LTS](#prerequisites)
     - [Ubuntu kernel 4.15.0 for UP](#prerequisites)
     - [Clone the repository](#clone-the-repository)
         - [Developer Forks](#developer-forks)
 - [Installation](#installation)
+  - [Update Device Settings](#update-device-settings)
   - [Device Security](#device-security)
     - [Remote User](#remote-user)
     - [SSH Access](#ssh-access)
@@ -41,7 +44,6 @@ The following guide will take you through setting up and installing the  [EMAR M
 &nbsp;
 
 # Required Hardware
-
 ![Required Hardware](../../../../Media/Images/hardware.jpg)
 
 - 1 x UP2
@@ -53,6 +55,16 @@ The following guide will take you through setting up and installing the  [EMAR M
 &nbsp;
 
 # Prerequisites 
+
+## HIAS Sever
+This system requires a fully functioning [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") to setup your HIAS server before continuing with this tutorial.
+
+### Create HIAS EMAR Device
+![Create HIAS EMAR Device](../../../../Media/Images/create-emar.jpg)
+
+You need to create a new EMAR device that will provide you with the credentials for the iotJumpWay communication. Head over to your HIAS UI and go to **Robotics->EMAR** and click on the **+** button in the EMAR Robotic Units pane.
+
+Once on the create page, fill out the form with your UP2 devices' details and submit the form. You will be taken to the newly created EMAR device page where you will find the iotJumpWay credentials for the three UP2 devices that are required for the EMAR Mini system. 
 
 ## Ubuntu Server 18.04.4 LTS
 For this project, the operating system of choice is [Ubuntu Server 18.04.4 LTS](https://ubuntu.com/download/server "Ubuntu Server 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial. 
@@ -103,6 +115,32 @@ The **-b "0.1.0"** parameter ensures you get the code from the latest master bra
 
 # Installation
 Now you need to install the EMAR system and it's dependencies.
+
+## Update Device Settings
+
+Now you need to update the device 1 settings. 
+
+```
+sudo nano Device/1/confs.json
+```
+```
+{
+    "iotJumpWay": {
+        "host": "YourHiasServerURL",
+        "port": 8883,
+        "ip": "localhost",
+        "lid": 0,
+        "zid": 0,
+        "did": 0,
+        "dn": "YourEmarDevice1Name",
+        "un": "YourEmarDevice1Username",
+        "pw": "YourEmarDevice1Password"
+    },
+    "EMAR": {
+        "ip": "YourEmarDevice1LocalIP"
+    }
+}
+```
 
 ## Device Security
 First you will harden your device security. 

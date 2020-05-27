@@ -9,11 +9,14 @@
 - [Introduction](#introduction)
 - [Required Hardware](#required-hardware)
 - [Prerequisites](#prerequisites)
+    - [HAIS Server](#prerequisites)
+    - [Device 1 & 2 Installation Guides](#device-1-2-installation-guides)
     - [Ubuntu Server 18.04.4 LTS](#prerequisites)
     - [Ubuntu kernel 4.15.0 for UP](#prerequisites)
     - [Clone the repository](#clone-the-repository)
         - [Developer Forks](#developer-forks)
 - [Installation](#installation)
+  - [Update Device Settings](#update-device-settings)
   - [Device Security](#device-security)
     - [Remote User](#remote-user)
     - [SSH Access](#ssh-access)
@@ -53,7 +56,13 @@ The following guide will take you through setting up and installing the  [EMAR M
 
 &nbsp;
 
-# Prerequisites 
+# Prerequisites  
+
+## HIAS Sever
+This system requires a fully functioning [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") to setup your HIAS server before continuing with this tutorial.
+
+## Device 1 & 2 Installation Guides
+Before you continue with this tutorial, you should complete the steps in the [Device 1](Devices/1/Documentation/Installation/Installation.md "Device 1") & [Device 2](Devices/2/Documentation/Installation/Installation.md "Device 2") installation guides.
 
 ## Ubuntu Server 18.04.4 LTS
 For this project, the operating system of choice is [Ubuntu Server 18.04.4 LTS](https://ubuntu.com/download/server "Ubuntu Server 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial. 
@@ -104,6 +113,41 @@ The **-b "0.1.0"** parameter ensures you get the code from the latest master bra
 
 # Installation
 Now you need to install the EMAR system and it's dependencies.
+
+## Update Device Settings
+
+Now you need to update the device 3 settings using the credentials provided in the HIAS UI. 
+
+```
+sudo nano Device/3/confs.json
+```
+```
+{
+    "iotJumpWay": {
+        "host": "YourHiasServerURL",
+        "port": 8883,
+        "ip": "localhost",
+        "lid": 0,
+        "zid": 0,
+        "did": 0,
+        "dn": "YourEmarDevice3Name",
+        "un": "YourEmarDevice3Username",
+        "pw": "YourEmarDevice3Password"
+    },
+    "EMAR": {
+        "ip": "YourEmarDevice3LocalIP"
+    },
+    "TASS": {
+        "server": {
+            "port": 8080
+        },
+        "socket": {
+            "port": 8181
+        },
+        "vid": 0
+    }
+}
+```
 
 ## Device Security
 First you will harden your device security. 
