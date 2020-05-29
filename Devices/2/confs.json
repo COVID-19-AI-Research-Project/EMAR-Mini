@@ -13,12 +13,13 @@
     "EMAR": {
         "ip": ""
     },
-    "Realsense": {
+    "TASS": {
         "server": {
-            "port": 8282
+            "port": 8080
         },
         "socket": {
-            "port": 8383
-        }
+            "port": 8181
+        },
+        "vid": 0
     }
 }

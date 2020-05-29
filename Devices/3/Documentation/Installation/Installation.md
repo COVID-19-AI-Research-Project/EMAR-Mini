@@ -9,7 +9,7 @@
 - [Introduction](#introduction)
 - [Required Hardware](#required-hardware)
 - [Prerequisites](#prerequisites)
-    - [HAIS Server](#prerequisites)
+    - [HAIS Server](#hias-server)
     - [Device 1 & 2 Installation Guides](#device-1-2-installation-guides)
     - [Ubuntu Server 18.04.4 LTS](#prerequisites)
     - [Ubuntu kernel 4.15.0 for UP](#prerequisites)
@@ -29,6 +29,8 @@
     - [UP2 Pinout](#up2-pinout)
     - [RPI GP-Bus Layout](#rpi-gp-bus-layout)
     - [LEDs](#leds)
+  - [Intel Realsense D415](#intel-realsense-d415)
+  - [Neural Compute Stick 2/OpenVINO](#neural-compute-stick-2-openvino)
 - [Start The System](#start-the-system)
 - [Contributing](#contributing)
     - [Contributors](#contributors)
@@ -39,7 +41,9 @@
 &nbsp;
 
 # Introduction
-The following guide will take you through setting up and installing the  [EMAR Mini Emergency Assistance Robot](https://github.com/COVID-19-Research-Project/EMAR-Mini "EMAR Mini Emergency Assistance Robot") device 3 of 3.
+The following guide will take you through setting up and installing the  [EMAR Mini Emergency Assistance Robot](https://github.com/COVID-19-Research-Project/EMAR-Mini "EMAR Mini Emergency Assistance Robot") device 3 of 3. 
+
+Device 3 homes the software for the near-realtime object detection and depth sensing for measuring distances. 
 
 &nbsp;
 
@@ -48,11 +52,11 @@ The following guide will take you through setting up and installing the  [EMAR M
 ![Required Hardware](../../../../Media/Images/hardware.jpg)
 
 - 1 x UP2
-- 1 x AAEON EP-DCOV2735-F36 - USB 1080P HD Camera
+- 1 x Intel Realsense D415 Depth Camera
 - 1 x Breadboard
 - 2 x LED's
 - 2 x 220 Ω resistors
-- 6 x jumper wires
+- Jumper wires
 
 &nbsp;
 
@@ -62,7 +66,7 @@ The following guide will take you through setting up and installing the  [EMAR M
 This system requires a fully functioning [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") to setup your HIAS server before continuing with this tutorial.
 
 ## Device 1 & 2 Installation Guides
-Before you continue with this tutorial, you should complete the steps in the [Device 1](Devices/1/Documentation/Installation/Installation.md "Device 1") & [Device 2](Devices/2/Documentation/Installation/Installation.md "Device 2") installation guides.
+Before you continue with this tutorial, you should complete the steps in the [Device 1 installation guide](Devices/1/Documentation/Installation/Installation.md "Device 1 installation guide") and the [Device 2 installation guide](Devices/2/Documentation/Installation/Installation.md "Device 2 installation guide").
 
 ## Ubuntu Server 18.04.4 LTS
 For this project, the operating system of choice is [Ubuntu Server 18.04.4 LTS](https://ubuntu.com/download/server "Ubuntu Server 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial. 
@@ -87,7 +91,7 @@ Clone the [EMAR](https://github.com/COVID-19-Research-Project/EMAR-Mini "EMAR") 
 To clone the repository and install EMAR-Mini, make sure you have Git installed. Now to the home directory on your server device using terminal/commandline, and then use the following command.
 
 ```
-  $ git clone https://github.com/COVID-19-Research-Project/EMAR-Mini.git
+git clone https://github.com/COVID-19-Research-Project/EMAR-Mini.git
 ```
 
 Once you have used the command above you will see a directory called **EMAR-Mini** in your home directory. 
@@ -101,13 +105,13 @@ EMAR-Mini
 Navigate to **EMAR-Mini/Devices/3** directory, this is your project root directory for this tutorial.
 
 ### Developer Forks
-Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") guide. You should pull the latest code from the development branch.
+Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](../../../../CONTRIBUTING.md "CONTRIBUTING") guide. You should pull the latest code from the development branch.
 
 ```
-  $ git clone -b "0.1.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
+  $ git clone -b "0.4.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
 ```
 
-The **-b "0.1.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
+The **-b "0.4.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
 
 &nbsp;
 
@@ -116,10 +120,10 @@ Now you need to install the EMAR system and it's dependencies.
 
 ## Update Device Settings
 
-Now you need to update the device 3 settings using the credentials provided in the HIAS UI. 
+Now you need to update the device 2 settings using the credentials provided in the HIAS UI. 
 
 ```
-sudo nano Device/3/confs.json
+sudo nano Device/2/confs.json
 ```
 ```
 {
@@ -130,21 +134,20 @@ sudo nano Device/3/confs.json
         "lid": 0,
         "zid": 0,
         "did": 0,
-        "dn": "YourEmarDevice3Name",
-        "un": "YourEmarDevice3Username",
-        "pw": "YourEmarDevice3Password"
+        "dn": "YourEmarDevice2Name",
+        "un": "YourEmarDevice2Username",
+        "pw": "YourEmarDevice2Password"
     },
     "EMAR": {
-        "ip": "YourEmarDevice3LocalIP"
+        "ip": "YourEmarDevice2LocalIP"
     },
-    "TASS": {
+    "Realsense": {
         "server": {
-            "port": 8080
+            "port": 8282
         },
         "socket": {
-            "port": 8181
-        },
-        "vid": 0
+            "port": 8383
+        }
     }
 }
 ```
@@ -300,6 +303,8 @@ sudo pip3 install Pillow
 sudo pip3 install numpy
 sudo pip3 install zmq
 sudo pip3 install psutil
+sudo pip3 cachetools
+sudo pip3 install ipregistry
 ```
 
 ## MRAA
@@ -342,16 +347,159 @@ The LED on the far left is the power LED, this will flash on startup and remain 
 
 The other LED is the communication LED, this will light up when the device receives a command from the iotJumpWay. Connect a wire to pin 13, and the other end connect to the short leg of the communication LED. 
 
+## Intel Realsense D415
+
+**UNPLUG YOUR REALSENSE CAMERA FROM THE UP2**
+
+```
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo bionic main" -u
+sudo apt-get install librealsense2-dkms
+sudo apt-get install librealsense2-utils
+sudo apt-get install librealsense2-dev
+sudo apt-get install librealsense2-dbg
+```
+
+Now plugin in the Realsense camera.
+
+```
+realsense-viewer
+```
+if you get no error then you are all set.https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/download.html
+
+## Intel® Distribution of the OpenVINO™ toolkit & Intel® Neural Compute Stick 2
+We will use the Intel® Distribution of the OpenVINO™ toolkit & Intel® Neural Compute Stick 2 to detect objects in the color frames from the D415. The coordinates of the objects will be used to detect if objects become to close to the robot as it manoeuvres.
+
+To begin you first need to download the [Intel® Distribution of the OpenVINO™ toolkit](https://es.aliexpress.com/item/32831130256.html "Intel® Distribution of the OpenVINO™ toolkit"). There are some known bugs with this system, first of all you must use Firefox or you will not be able to download the software as the download button is only visible in Firefox. If you use ad blockers Ublock, you will need to disable them or the page will not load correctly. 
+
+Once you have downloaded your copy of Intel® Distribution of the OpenVINO™ toolkit, upload the compressed folder to the home of your device 2. In my case the compressed folder is named **l_openvino_toolkit_p_2020.2.120.tgz**. To install the Intel® Distribution of the OpenVINO™ toolkit use the following commands.
+
+**UNPLUG YOUR NEURAL COMPUTE STICK 2**
+
+```
+tar xvf l_openvino_toolkit_p_2020.2.120.tgz
+cd l_openvino_toolkit_p_2020.2.120
+sudo -E ./install_openvino_dependencies.sh 
+sudo ./install.sh
+```
+
+When asked, press 1 to skip prerequisites, 1 to install default settings, then if asked 1 to skip prerequisites again. You should see the following:
+
+```
+First Part of Installation is Complete
+--------------------------------------------------------------------------------
+The first part of Intel® Distribution of OpenVINO™ toolkit 2020.2 for Linux*
+has been successfully installed in
+/home/emar/intel/openvino_2020.2.120.
+
+ADDITIONAL STEPS STILL REQUIRED:
+
+Open the Installation guide at:
+ https://docs.openvinotoolkit.org/2020.2/_docs_install_guides_installing_openvin
+o_linux.html
+and follow the guide instructions to complete the remaining tasks listed below:
+
+ • Set Environment variables
+ • Configure Model Optimizer
+ • Run the Verification Scripts to Verify Installation and Compile Samples
+
+--------------------------------------------------------------------------------
+```
+
+Use the following command to setup the environment variables:
+
+```
+source /opt/intel/openvino/bin/setupvars.sh
+```
+
+To make this permanent, use the following command:
+
+```
+sudo nano ~/.bashrc
+```
+and add the following to the bottom of the file before saving and closing.
+
+```
+source /opt/intel/openvino/bin/setupvars.sh
+```
+
+Now use the following commands to complete the setup:
+```
+cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites
+sudo ./install_prerequisites.sh
+cd /opt/intel/openvino/deployment_tools/demo
+./demo_squeezenet_download_convert_run.sh
+```
+
+## Intel® Neural Compute Stick 2
+Use the following commands to setup your Intel® Neural Compute Stick 2 and test it.
+
+```
+cd ~/intel/openvino/install_dependencies
+./install_NCS_udev_rules.sh
+cd ~/intel/openvino/deployment_tools/demo
+./demo_squeezenet_download_convert_run.sh -d MYRIAD
+sudo reboot
+```
+
+### MobileNetSSD
+From the device 2 project root, use the following command to convert the Caffe model to 
+
+```
+sudo python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py \
+--input_model Model/MobileNetSSD_deploy.caffemodel \
+--input_proto Model/MobileNetSSD_deploy.prototxt \
+--output_dir Model \
+--data_type FP32 \
+--batch 1
+```
+
+You should see the following:
+```
+Model Optimizer arguments:
+Common parameters:
+        - Path to the Input Model:      /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.caffemodel
+        - Path for generated IR:        /home/emar/EMAR-Mini/Devices/2/Model
+        - IR output name:       MobileNetSSD_deploy
+        - Log level:    ERROR
+        - Batch:        1
+        - Input layers:         Not specified, inherited from the model
+        - Output layers:        Not specified, inherited from the model
+        - Input shapes:         Not specified, inherited from the model
+        - Mean values:  Not specified
+        - Scale values:         Not specified
+        - Scale factor:         Not specified
+        - Precision of IR:      FP32
+        - Enable fusing:        True
+        - Enable grouped convolutions fusing:   True
+        - Move mean values to preprocess section:       False
+        - Reverse input channels:       False
+Caffe specific parameters:
+        - Path to Python Caffe* parser generated from caffe.proto:      /opt/intel/openvino/deployment_tools/model_optimizer/mo/front/caffe/proto
+        - Enable resnet optimization:   True
+        - Path to the Input prototxt:   /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.prototxt
+        - Path to CustomLayersMapping.xml:      Default
+        - Path to a mean file:  Not specified
+        - Offsets for a mean file:      Not specified
+Model Optimizer version:        2020.2.0-60-g0bc66e26ff
+
+[ SUCCESS ] Generated IR version 10 model.
+[ SUCCESS ] XML file: /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.xml
+[ SUCCESS ] BIN file: /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.bin
+[ SUCCESS ] Total execution time: 28.09 seconds.
+[ SUCCESS ] Memory consumed: 194 MB.
+```
+
 &nbsp;
 
 # Start the system
-To start the system, make sure you are in the **EMAR-Mini/Devices/3** directory and use the following commands: 
+To start the system, make sure you are in the **EMAR-Mini/Devices/2** directory and use the following commands: 
 
 ```
 sudo python3 EMAR.py
 ```
 
-If everything has been done correctly you will now be streaming the video frames from the EP-DCOV2735-F36.
+If everything has been done correctly you will now be streaming the depth and color frames from the D415, and your device is waiting for commands to move the arm.
 
 &nbsp;
 
@@ -372,16 +520,16 @@ Please read the [CONTRIBUTING](../../../../CONTRIBUTING.md "CONTRIBUTING") docum
 
 # Versioning
 
-You use SemVer for versioning. For the versions available, see [Releases](../../releases "Releases").
+You use SemVer for versioning. For the versions available, see [Releases](../../../../releases "Releases").
 
 &nbsp;
 
 # License
 
-This project is licensed under the **MIT License** - see the [LICENSE](../../LICENSE "LICENSE") file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](../../../../LICENSE "LICENSE") file for details.
 
 &nbsp;
 
 # Bugs/Issues
 
-You use the [repo issues](../../issues "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
+You use the [repo issues](../../../../issues "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](../../../../CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
