@@ -101,7 +101,7 @@ Using the ls command in your home directory should show you the following.
 ```
 EMAR-Mini
 ```
-Navigate to **EMAR-Mini/Devices/3** directory, this is your project root directory for this tutorial.
+Navigate to **EMAR-Mini/Devices/2** directory, this is your project root directory for this tutorial.
 
 ### Developer Forks
 Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") guide. You should pull the latest code from the development branch.
@@ -367,7 +367,7 @@ Using male to male jumper wires, connect each of the three servos to the breadbo
 &nbsp;
 
 # Start the system
-To start the system, make sure you are in the **EMAR-Mini/Devices/3** directory and use the following commands: 
+To start the system, make sure you are in the **EMAR-Mini/Devices/2** directory and use the following commands: 
 
 ```
 sudo python3 EMAR.py

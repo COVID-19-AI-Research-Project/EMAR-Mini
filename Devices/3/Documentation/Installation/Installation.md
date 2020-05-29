@@ -458,8 +458,8 @@ You should see the following:
 ```
 Model Optimizer arguments:
 Common parameters:
-        - Path to the Input Model:      /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.caffemodel
-        - Path for generated IR:        /home/emar/EMAR-Mini/Devices/2/Model
+        - Path to the Input Model:      /home/emar/EMAR-Mini/Devices/3/Model/MobileNetSSD_deploy.caffemodel
+        - Path for generated IR:        /home/emar/EMAR-Mini/Devices/3/Model
         - IR output name:       MobileNetSSD_deploy
         - Log level:    ERROR
         - Batch:        1
@@ -477,15 +477,15 @@ Common parameters:
 Caffe specific parameters:
         - Path to Python Caffe* parser generated from caffe.proto:      /opt/intel/openvino/deployment_tools/model_optimizer/mo/front/caffe/proto
         - Enable resnet optimization:   True
-        - Path to the Input prototxt:   /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.prototxt
+        - Path to the Input prototxt:   /home/emar/EMAR-Mini/Devices/3/Model/MobileNetSSD_deploy.prototxt
         - Path to CustomLayersMapping.xml:      Default
         - Path to a mean file:  Not specified
         - Offsets for a mean file:      Not specified
 Model Optimizer version:        2020.2.0-60-g0bc66e26ff
 
 [ SUCCESS ] Generated IR version 10 model.
-[ SUCCESS ] XML file: /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.xml
-[ SUCCESS ] BIN file: /home/emar/EMAR-Mini/Devices/2/Model/MobileNetSSD_deploy.bin
+[ SUCCESS ] XML file: /home/emar/EMAR-Mini/Devices/3/Model/MobileNetSSD_deploy.xml
+[ SUCCESS ] BIN file: /home/emar/EMAR-Mini/Devices/3/Model/MobileNetSSD_deploy.bin
 [ SUCCESS ] Total execution time: 28.09 seconds.
 [ SUCCESS ] Memory consumed: 194 MB.
 ```
@@ -493,7 +493,7 @@ Model Optimizer version:        2020.2.0-60-g0bc66e26ff
 &nbsp;
 
 # Start the system
-To start the system, make sure you are in the **EMAR-Mini/Devices/2** directory and use the following commands: 
+To start the system, make sure you are in the **EMAR-Mini/Devices/3** directory and use the following commands: 
 
 ```
 sudo python3 EMAR.py
