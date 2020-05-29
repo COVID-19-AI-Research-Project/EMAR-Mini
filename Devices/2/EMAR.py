@@ -9,11 +9,11 @@
 # Description:   The EMAR Mini Emergency Assistance Robot Class is the the core
 #                for the EMAR Mini software.
 # License:       MIT License
-# Last Modified: 2020-05-26
+# Last Modified: 2020-05-28
 #
 ############################################################################################
 
-import json, psutil, threading, sys
+import json, psutil, requests, sys, threading
 
 from threading import Thread
 
@@ -21,8 +21,8 @@ from Classes.Helpers import Helpers
 from Classes.iotJumpWay import Device as iotJumpWay
 from Classes.Arm import Arm
 from Classes.LEDs import LEDs
-from Classes.RealsenseRead import RealsenseRead
-from Classes.RealsenseStream import RealsenseStream
+from Classes.CamRead import CamRead
+from Classes.CamStream import CamStream
 
 class EMAR():
     """ EMAR Mini Emergency Assistance Robot Class
@@ -42,10 +42,11 @@ class EMAR():
         
         # Subscribes to the EMAR Mini commands topic 
         self.iotJumpWay.channelSub("Commands")
+        
         # Sets the EMAR Mini commands callback function 
         self.iotJumpWay.commandsCallback = self.commands
-
         self.Helpers.logger.info("EMAR Mini awaiting commands.")
+        
         self.Helpers.logger.info("EMAR Mini Emergency Assistance Robot Class initialization complete.")
 
     def hardware(self):
@@ -57,6 +58,9 @@ class EMAR():
         
         # Sets up EMAR Mini Arm software 
         self.Arm = Arm()
+        
+        # Toggles the communication LED in a new thread 
+        Thread(target = self.LEDs.dataReceived, args = ()).start()
 
         self.Helpers.logger.info("EMAR Mini hardware modules loaded.")
             
@@ -69,9 +73,6 @@ class EMAR():
         """
         
         self.Helpers.logger.info("Recieved iotJumpWay Command Data : " + str(payload))
-        
-        # Toggles the communication LED in a new thread 
-        Thread(target = self.LEDs.dataReceived, args = ()).start()
         
         # Loads the command data as JSON 
         command = json.loads(payload.decode("utf-8"))
@@ -87,20 +88,11 @@ class EMAR():
         mem = psutil.virtual_memory()[2]
         hdd = psutil.disk_usage('/').percent
         tmp = psutil.sensors_temperatures()['coretemp'][0].current
-        print("")
-        print("")
-        print("YAR")
-        print("")
-        print("")
+        
         self.Helpers.logger.info("EMAR Mini Life (TEMPERATURE): " + str(tmp) + "\u00b0")
         self.Helpers.logger.info("EMAR Mini Life (CPU): " + str(cpu) + "%")
         self.Helpers.logger.info("EMAR Mini Life (Memory): " + str(mem) + "%")
         self.Helpers.logger.info("EMAR Mini Life (HDD): " + str(hdd) + "%")
-        print("")
-        print("")
-        print("YAR")
-        print("")
-        print("")
         
         # Send iotJumpWay notification
         self.iotJumpWay.channelPub("Life", {
@@ -109,6 +101,8 @@ class EMAR():
             "Diskspace": hdd,
             "Temperature": tmp
         })
+        
+        threading.Timer(60.0, self.life).start()
         
     def threading(self):
         """ Starts the EMAR Mini software threads. """
@@ -120,15 +114,16 @@ class EMAR():
         Thread(target = self.LEDs.powerup, args = ()).start()
         Thread(target = self.LEDs.cpowerup, args = ()).start()
         
-        # Realsense threads
-        Thread(target=RealsenseRead().run).start()
-        Thread(target=RealsenseStream().run).start()
+        # Camera threads
+        Thread(target=CamRead().run).start()
+        Thread(target=CamStream().run).start()
         
     def shutdown(self):
         """ Shuts down the EMAR Mini software. """
         
         self.LEDs.shutdown(self.LEDs.PowerLED)
         self.LEDs.shutdown(self.LEDs.CommunicationLED)
+        
         self.iotJumpWay.disconnect()
         self.Helpers.logger.info("EMAR Mini Exiting")
         sys.exit()

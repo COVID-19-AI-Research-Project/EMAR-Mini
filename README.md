@@ -2,7 +2,7 @@
 ## EMAR Mini Emergency Assistance Robot
 [![Emergency Assistance Robot](Media/Images/EMAR-Mini.png)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini)
 
-[![VERSION](https://img.shields.io/badge/VERSION-0.1.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.1.0) [![DEV BRANCH](https://img.shields.io/badge/DEV%20BRANCH-0.2.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.2.0) [![Issues Welcome!](https://img.shields.io/badge/Contributions-Welcome-lightgrey.svg)](CONTRIBUTING.md) [![Issues](https://img.shields.io/badge/Issues-Welcome-lightgrey.svg)](issues) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)
+[![VERSION](https://img.shields.io/badge/VERSION-0.2.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.2.0) [![DEV BRANCH](https://img.shields.io/badge/DEV%20BRANCH-0.4.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.4.0) [![Issues Welcome!](https://img.shields.io/badge/Contributions-Welcome-lightgrey.svg)](CONTRIBUTING.md) [![Issues](https://img.shields.io/badge/Issues-Welcome-lightgrey.svg)](issues) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)
 
 &nbsp; 
 
@@ -99,8 +99,8 @@ Installation scripts and tutorials for setting up your Emergency Assistance Robo
 | ORDER | GUIDE | INFORMATION | AUTHOR | Status |
 | ----- | ----- | ----------- | ------ | ------ |
 | 1 | [Device 1](Devices/1/Documentation/Installation/Installation.md "Device 1") | Device 1 installation guide covering wheels installation. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | DEVELOPMENT | 
-| 2 | [Device 2](Devices/2/Documentation/Installation/Installation.md "Device 2") | Device 2 installation guide covering arm, Realsense and NCS2 installation |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | DEVELOPMENT | 
-| 3 | [Device 3](Devices/3/Documentation/Installation/Installation.md "Device 3") | Device 3 installation guide covering camera pan/tilt  and NCS2 installation |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | DEVELOPMENT | 
+| 2 | [Device 2](Devices/2/Documentation/Installation/Installation.md "Device 2") | Device 2 installation guide covering arm installation | [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | DEVELOPMENT | 
+| 3 | [Device 3](Devices/3/Documentation/Installation/Installation.md "Device 3") | Device 3 installation guide covering Realsense/OpenVINO, NCS2, camera pan/tilt installation | [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | DEVELOPMENT | 
 
 &nbsp;
 

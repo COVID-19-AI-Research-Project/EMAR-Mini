@@ -9,8 +9,8 @@
 - [Introduction](#introduction)
 - [Required Hardware](#required-hardware)
 - [Prerequisites](#prerequisites)
-    - [HAIS Server](#hias-server)
-    - [Device 1 Installation Guide](#device-1-installation-guide)
+    - [HAIS Server](#prerequisites)
+    - [Device 1 & 2 Installation Guides](#device-1-2-installation-guides)
     - [Ubuntu Server 18.04.4 LTS](#prerequisites)
     - [Ubuntu kernel 4.15.0 for UP](#prerequisites)
     - [Clone the repository](#clone-the-repository)
@@ -29,7 +29,6 @@
     - [UP2 Pinout](#up2-pinout)
     - [RPI GP-Bus Layout](#rpi-gp-bus-layout)
     - [LEDs](#leds)
-  - [Intel Realsense D415](#intel-realsense-d415)
   - [Robotic Arm](#robotic-arm)
 - [Start The System](#start-the-system)
 - [Contributing](#contributing)
@@ -41,7 +40,7 @@
 &nbsp;
 
 # Introduction
-The following guide will take you through setting up and installing the  [EMAR Mini Emergency Assistance Robot](https://github.com/COVID-19-Research-Project/EMAR-Mini "EMAR Mini Emergency Assistance Robot") device 2 of 3.
+The following guide will take you through setting up and installing the  [EMAR Mini Emergency Assistance Robot](https://github.com/COVID-19-Research-Project/EMAR-Mini "EMAR Mini Emergency Assistance Robot") device 3 of 3.
 
 &nbsp;
 
@@ -50,13 +49,13 @@ The following guide will take you through setting up and installing the  [EMAR M
 ![Required Hardware](../../../../Media/Images/hardware.jpg)
 
 - 1 x UP2
-- 1 x Intel Realsense D415 Depth Camera
+- 1 x AAEON EP-DCOV2735-F36 - USB 1080P HD Camera
 - 1 x Breadboard
 - 2 x LED's
 - 2 x 220 Ω resistors
-- 6 x jumper wires
 - 1 x 6 DOF Robot Manipulator Metal Alloy Mechanical Arm Clamp Claw Kit MG996R
 - 6 x MG996R servos
+- Jumper wires
 
 &nbsp;
 
@@ -65,8 +64,8 @@ The following guide will take you through setting up and installing the  [EMAR M
 ## HIAS Sever
 This system requires a fully functioning [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") to setup your HIAS server before continuing with this tutorial.
 
-## Device 1 Installation Guide
-Before you continue with this tutorial, you should complete the steps in the [Device 1 installation guide](Devices/1/Documentation/Installation/Installation.md "Device 1 installation guide").
+## Device 1 & 2 Installation Guides
+Before you continue with this tutorial, you should complete the steps in the [Device 1](Devices/1/Documentation/Installation/Installation.md "Device 1") & [Device 2](Devices/2/Documentation/Installation/Installation.md "Device 2") installation guides.
 
 ## Ubuntu Server 18.04.4 LTS
 For this project, the operating system of choice is [Ubuntu Server 18.04.4 LTS](https://ubuntu.com/download/server "Ubuntu Server 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial. 
@@ -108,10 +107,10 @@ Navigate to **EMAR-Mini/Devices/2** directory, this is your project root directo
 Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") guide. You should pull the latest code from the development branch.
 
 ```
-  $ git clone -b "0.1.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
+  $ git clone -b "0.3.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
 ```
 
-The **-b "0.1.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
+The **-b "0.3.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
 
 &nbsp;
 
@@ -120,10 +119,10 @@ Now you need to install the EMAR system and it's dependencies.
 
 ## Update Device Settings
 
-Now you need to update the device 2 settings using the credentials provided in the HIAS UI. 
+Now you need to update the device 3 settings using the credentials provided in the HIAS UI. 
 
 ```
-sudo nano Device/2/confs.json
+sudo nano Device/3/confs.json
 ```
 ```
 {
@@ -134,20 +133,21 @@ sudo nano Device/2/confs.json
         "lid": 0,
         "zid": 0,
         "did": 0,
-        "dn": "YourEmarDevice2Name",
-        "un": "YourEmarDevice2Username",
-        "pw": "YourEmarDevice2Password"
+        "dn": "YourEmarDevice3Name",
+        "un": "YourEmarDevice3Username",
+        "pw": "YourEmarDevice3Password"
     },
     "EMAR": {
-        "ip": "YourEmarDevice2LocalIP"
+        "ip": "YourEmarDevice3LocalIP"
     },
-    "Realsense": {
+    "TASS": {
         "server": {
-            "port": 8282
+            "port": 8080
         },
         "socket": {
-            "port": 8383
-        }
+            "port": 8181
+        },
+        "vid": 0
     }
 }
 ```
@@ -345,32 +345,12 @@ The LED on the far left is the power LED, this will flash on startup and remain 
 
 The other LED is the communication LED, this will light up when the device receives a command from the iotJumpWay. Connect a wire to pin 13, and the other end connect to the short leg of the communication LED. 
 
-## Intel Realsense D415
-
-**UNPLUG YOUR REALSENSE CAMERA FROM THE UP2**
-
-```
-sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
-sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo bionic main" -u
-sudo apt-get install librealsense2-dkms
-sudo apt-get install librealsense2-utils
-sudo apt-get install librealsense2-dev
-sudo apt-get install librealsense2-dbg
-```
-
-Now plugin in the Realsense camera.
-
-```
-realsense-viewer
-```
-if you get no error then you are all set.
-
 ## Robotic Arm
 ![Robotic Arm](../../../../Media/Images/arm.jpg)
 
 For this version of the robot you will use the [6 DOF Robot Manipulator Metal Alloy Mechanical Arm Clamp Claw Kit MG996R](https://es.aliexpress.com/item/32831130256.html "6 DOF Robot Manipulator Metal Alloy Mechanical Arm Clamp Claw Kit MG996R") kit. 
 
-Follow the robotic arm instructions to set up your arm, we will use three of the servos. The UP2 has 3 PWM pins which will allow us to control the three servos, however at this moment there is problems with pin 33 meaning we can only control 2 servos. 
+Follow the robotic arm instructions to set up your arm, we will use three of the servos. The UP2 has 3 PWM pins which will allow us to control the three servos. 
 
 Connect a wire to pin 2 of the UP2, this is the 5v output. Next connect the wire to the second power rail of your UP2. Using another wire connect the two ground rails together. This will mean on one power rail you have 3v powering your LEDs, and the second power rail provides 5v for the servos.
 
@@ -393,7 +373,7 @@ To start the system, make sure you are in the **EMAR-Mini/Devices/2** directory 
 sudo python3 EMAR.py
 ```
 
-If everything has been done correctly you will now be streaming the depth and color frames from the D415, and your device is waiting for commands to move the arm.
+If everything has been done correctly you will now be streaming the video frames from the EP-DCOV2735-F36.
 
 &nbsp;
 
