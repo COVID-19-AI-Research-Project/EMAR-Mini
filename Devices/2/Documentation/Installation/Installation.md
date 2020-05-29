@@ -107,10 +107,10 @@ Navigate to **EMAR-Mini/Devices/2** directory, this is your project root directo
 Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") guide. You should pull the latest code from the development branch.
 
 ```
-  $ git clone -b "0.1.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
+  $ git clone -b "0.3.0" https://github.com/COVID-19-Research-Project/EMAR-Mini.git
 ```
 
-The **-b "0.1.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
+The **-b "0.3.0"** parameter ensures you get the code from the latest master branch. Before using the below command please check our latest master branch in the button at the top of the project README.
 
 &nbsp;
 

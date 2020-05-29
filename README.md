@@ -2,7 +2,7 @@
 ## EMAR Mini Emergency Assistance Robot
 [![Emergency Assistance Robot](Media/Images/EMAR-Mini.png)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini)
 
-[![VERSION](https://img.shields.io/badge/VERSION-0.1.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.1.0) [![DEV BRANCH](https://img.shields.io/badge/DEV%20BRANCH-0.2.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.2.0) [![Issues Welcome!](https://img.shields.io/badge/Contributions-Welcome-lightgrey.svg)](CONTRIBUTING.md) [![Issues](https://img.shields.io/badge/Issues-Welcome-lightgrey.svg)](issues) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)
+[![VERSION](https://img.shields.io/badge/VERSION-0.2.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.2.0) [![DEV BRANCH](https://img.shields.io/badge/DEV%20BRANCH-0.4.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/EMAR-Mini/tree/0.4.0) [![Issues Welcome!](https://img.shields.io/badge/Contributions-Welcome-lightgrey.svg)](CONTRIBUTING.md) [![Issues](https://img.shields.io/badge/Issues-Welcome-lightgrey.svg)](issues) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)
 
 &nbsp; 
 
