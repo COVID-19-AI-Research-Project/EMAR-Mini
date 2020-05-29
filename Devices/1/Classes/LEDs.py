@@ -8,7 +8,7 @@
 # Title:         EMAR Mini LEDs Class
 # Description:   LED functions for EMAR Mini Emergency Assistance Robot.
 # License:       MIT License
-# Last Modified: 2020-05-26
+# Last Modified: 2020-05-29
 #
 ############################################################################################
 
@@ -48,6 +48,8 @@ class LEDs():
         """ Flashes the EMAR power LED """
         
         # Alternates the power LED
+        self.PowerLED.write(0)
+        time.sleep(1)
         self.PowerLED.write(1)
         time.sleep(1)
         self.PowerLED.write(0)
@@ -62,6 +64,8 @@ class LEDs():
         """ Flashes the EMAR communication LED """
         
         # Alternates the communication LED
+        self.CommunicationLED.write(0)
+        time.sleep(1)
         self.CommunicationLED.write(1)
         time.sleep(1)
         self.CommunicationLED.write(0)
@@ -74,15 +78,15 @@ class LEDs():
         """ Flashes the EMAR communication LED """
         
         # Alternates the communication LED
-        self.CommunicationLED.write(1)
-        time.sleep(1)
         self.CommunicationLED.write(0)
         time.sleep(1)
         self.CommunicationLED.write(1)
+        time.sleep(1)
+        self.CommunicationLED.write(0)
         
         self.Helpers.logger.info("Communication LED ready!")
 
     def shutdown(self, led):
         """ Resets the passed LED """
         
-        led.write(0)
+        led.write(1)

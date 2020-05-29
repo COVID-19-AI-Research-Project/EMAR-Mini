@@ -13,13 +13,43 @@
     "EMAR": {
         "ip": ""
     },
-    "TASS": {
+    "Realsense": {
         "server": {
-            "port": 8080
+            "port": 8282
         },
         "socket": {
-            "port": 8181
-        },
-        "vid": 0
+            "port": 8383
+        }
+    },
+    "MobileNetSSD": {
+        "bin": "Model/MobileNetSSD_deploy.bin",
+        "classes": [
+            "background",
+            "aeroplane",
+            "bicycle",
+            "bird",
+            "boat",
+            "bottle",
+            "bus",
+            "car",
+            "cat",
+            "chair",
+            "cow",
+            "diningtable",
+            "dog",
+            "horse",
+            "motorbike",
+            "person",
+            "pottedplant",
+            "sheep",
+            "sofa",
+            "train",
+            "tvmonitor"
+        ],
+        "inScaleFactor": 0.007843,
+        "meanVal": 127.53,
+        "size": 300,
+        "threshold": 60,
+        "xml": "Model/MobileNetSSD_deploy.xml"
     }
 }

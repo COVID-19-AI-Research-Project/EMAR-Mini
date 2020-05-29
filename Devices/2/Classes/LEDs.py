@@ -85,4 +85,4 @@ class LEDs():
     def shutdown(self, led):
         """ Resets the passed LED """
         
-        led.write(0)
+        led.write(1)
