@@ -145,15 +145,18 @@ In this project we use the NCS2 device to provide real-time object detection on 
 &nbsp;
 
 ## Projects
-There are two projects planned for EMAR Mini, one uses a Raspberry Pi 4 and one uses UP Squared.
+There are two main versions planned for EMAR Mini, one uses a Raspberry Pi 4 and one uses UP Squared. 
+
+Below you will find all EMAR Mini projects, including the STLs for 3D printing, the Raspberry Pi 4 version, the UP2 version, and the remote control.
 
 **PLEASE NOTE: This project requires a functioning installation of the [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") before beginning these tutorials.**
 
 | ID | GUIDE | INFORMATION | AUTHOR | Status |
 | ----- | ----- | ----------- | ------ | ------ |
-| 1 | [3D Printing STLs](Projects/STLs "3D Printing STLs") | V1 of the open-source 3D printed files for EMAR Mini. |  [Jose Mario Garza](https://www.leukemiaresearchassociation.ai/team/jose-mario-garza "Jose Mario Garza") | V1 Complete | 
-| 2 | [Raspberry Pi 4](Projects/RPI4 "Raspberry Pi 4") | V1 of the hardware and software setup required for EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | V1 Complete | 
-| 3 | [ELEGOO UNO R3 Remote Control](Projects/Remote-Control "ELEGOO UNO R3 Remote Control") | An IoT connected remote control that can control EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | Complete | 
+| 1 | [STLs For 3D Printing](Projects/STLs "STLs For 3D Printing") | V1 of the open-source 3D printed files for EMAR Mini. |  [Jose Mario Garza](https://www.leukemiaresearchassociation.ai/team/jose-mario-garza "Jose Mario Garza") | V1 Complete | 
+| 2 | [Raspberry Pi 4](Projects/RPI4 "Raspberry Pi 4") | V1 of the Raspberry Pi 4 hardware and software setup required for EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | V1 Complete | 
+| 3 | [UP Squared](Projects/UP2 "UP Squared") | V1 of the UP Squared hardware and software setup required for EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | Development | 
+| 4 | [ELEGOO UNO R3 Remote Control](Projects/Remote-Control "ELEGOO UNO R3 Remote Control") | An IoT connected remote control that can control EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | Complete | 
 
 &nbsp;
 
