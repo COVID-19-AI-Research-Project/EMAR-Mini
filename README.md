@@ -153,7 +153,7 @@ There are two projects planned for EMAR Mini, one uses a Raspberry Pi 4 and one 
 | ----- | ----- | ----------- | ------ | ------ |
 | 1 | [3D Printing STLs](Projects/STLs "3D Printing STLs") | V1 of the open-source 3D printed files for EMAR Mini. |  [Jose Mario Garza](https://www.leukemiaresearchassociation.ai/team/jose-mario-garza "Jose Mario Garza") | V1 Complete | 
 | 2 | [Raspberry Pi 4](Projects/RPI4 "Raspberry Pi 4") | V1 of the hardware and software setup required for EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | V1 Complete | 
-| 3 | [ELEGOO UNO R3 Remote Control](Projects/Remote-Control "ELEGOO UNO R3 Remote Control") | An IoT connected remote control that can control EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | V1 Complete | 
+| 3 | [ELEGOO UNO R3 Remote Control](Projects/Remote-Control "ELEGOO UNO R3 Remote Control") | An IoT connected remote control that can control EMAR Mini. |  [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") | Complete | 
 
 &nbsp;
 
