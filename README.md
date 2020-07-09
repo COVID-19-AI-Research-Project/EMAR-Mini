@@ -120,7 +120,7 @@ In this project we use the D415 device to provide real-time depth and camera str
 
 [![Intel® Neural Compute Stick 2](Media/Images/intel-neural-compute-stick-2.png)](https://store.intelrealsense.com/buy-intel-neural-compute-stick-2.html)
 
-The [Intel® Neural Compute Stick 2](https://store.intelrealsense.com/buy-intel-neural-compute-stick-2.html "Intel® Neural Compute Stick 2") d(NCS2) is a USB plug & play AI device for deep learning inference at the edge. The Intel® NCS2 is built on the Intel® Movidius™ Myriad™ X VPU featuring 16 programmable shave cores and a dedicated neural compute engine for hardware acceleration of deep neural network inferences. 
+The [Intel® Neural Compute Stick 2](https://store.intelrealsense.com/buy-intel-neural-compute-stick-2.html "Intel® Neural Compute Stick 2") (NCS2) is a USB plug & play AI device for deep learning inference at the edge. The Intel® NCS2 is built on the Intel® Movidius™ Myriad™ X VPU featuring 16 programmable shave cores and a dedicated neural compute engine for hardware acceleration of deep neural network inferences. 
 
 In this project we use the NCS2 device to provide real-time object detection on the D415 real-time camera stream.
 
