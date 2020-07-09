@@ -147,7 +147,7 @@ In this project we use the NCS2 device to provide real-time object detection on 
 ## Projects
 There are two projects planned for EMAR Mini, one uses a Raspberry Pi 4 and one uses UP Squared.
 
-**PLEASE NOTE: This project requires a functioning installation of the [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") before beginning these tutorials.
+**PLEASE NOTE: This project requires a functioning installation of the [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server"). Follow the [HIAS server installation guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS server installation guide") before beginning these tutorials.**
 
 | ID | GUIDE | INFORMATION | AUTHOR | Status |
 | ----- | ----- | ----------- | ------ | ------ |
