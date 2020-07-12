@@ -1,0 +1,55 @@
+{
+    "iotJumpWay": {
+        "host": "",
+        "port": 8883,
+        "ip": "localhost",
+        "lid": 0,
+        "zid": 0,
+        "did": 0,
+        "dn": "",
+        "un": "",
+        "pw": ""
+    },
+    "EMAR": {
+        "ip": ""
+    },
+    "Realsense": {
+        "server": {
+            "port": 8282
+        },
+        "socket": {
+            "port": 8383
+        }
+    },
+    "MobileNetSSD": {
+        "bin": "Model/MobileNetSSD_deploy.bin",
+        "classes": [
+            "background",
+            "aeroplane",
+            "bicycle",
+            "bird",
+            "boat",
+            "bottle",
+            "bus",
+            "car",
+            "cat",
+            "chair",
+            "cow",
+            "diningtable",
+            "dog",
+            "horse",
+            "motorbike",
+            "person",
+            "pottedplant",
+            "sheep",
+            "sofa",
+            "train",
+            "tvmonitor"
+        ],
+        "inScaleFactor": 0.007843,
+        "meanVal": 127.53,
+        "size": 300,
+        "threshold": 0.6,
+        "xml": "Model/MobileNetSSD_deploy.xml"
+    }
+}
