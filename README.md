@@ -86,7 +86,7 @@ As mentioned the project is a work in progress. Below you will find the currentl
 
 - V1 of the HIAS EMAR/EMAR Mini UI is now available in the [HIAS server](https://github.com/LeukemiaAiResearch/HIAS "HIAS server") project. This system allows tele-operation of EMAR Mini and viewing the real-time streams.
 
-- HAIS tele-operation for the following:
+- HIAS tele-operation for the following:
     - Panning the head.
     - Moving the two arm pieces.
 
