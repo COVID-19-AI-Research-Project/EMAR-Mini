@@ -21,7 +21,7 @@
 
 # Introduction
 
-![Remote Control](Media/Images/emar-mini-remote-control.jpg)
+![Remote Control](Media/Images/EMAR-Mini-Remote-Control.jpg)
 
  In this project we use the **ELEGOO UNO R3** with their **IR Receiver Module** and **Remote Control** from their [ELEGOO UNO Project Super Starter Kit](https://www.amazon.es/ELEGOO-Iniciaci%C3%B3n-Alimentaci%C3%B3n-Servomotor-Desarrollo/dp/B01MXGST4I "ELEGOO UNO Project Super Starter Kit") to provide real-time control of EMAR Mini. 
 
