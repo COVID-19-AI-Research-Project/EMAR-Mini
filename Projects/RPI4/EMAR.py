@@ -106,10 +106,10 @@ class EMAR():
                 cycle = 7.0
                 servo = self.h1
         if(command["Type"]=="Arm"):
-            if(command["Value"]=="RIGHT"):
+            if(command["Value"]=="2UP"):
                 cycle = 7.0
                 servo = self.a1
-            if(command["Value"]=="LEFT"):
+            if(command["Value"]=="2DOWN"):
                 cycle = 12.0
                 servo = self.a1
             if(command["Value"] == "UP"):
