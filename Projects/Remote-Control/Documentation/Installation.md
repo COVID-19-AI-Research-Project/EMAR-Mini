@@ -10,13 +10,15 @@
 - [DISCLAIMER](#disclaimer)
 - [V1 Required Hardware](#v1-required-hardware)
 - [Prerequisites](#prerequisites)
+    - [HIAS - Hospital Intelligent Automation System](#hias-hospital-intelligent-automation-system)
     - [STLs For 3D Printing Tutorial](#stls-for-3d-printing-tutorial)
     - [Raspberry Pi 4 Tutorial](#raspberry-pi-4-tutorial)
-    - [ELEGOO UNO R3 & Breadboard](#elegoo-uno-r3--breadboard)
-    - [EMAR-RCR](#emar-rcr)
-    - [EMAR-RCP](#emar-rcp)
 - [Installation](#installation)
     - [ESP8266 12F](#esp8266-12f)
+    - [ELEGOO UNO R3 & Breadboard](#elegoo-uno-r3--breadboard)
+    - [iotJumpWay Credentials](#iotjumpway-credentials)
+    - [EMAR-RCP](#emar-rcp)
+    - [EMAR-RCR](#emar-rcr)
 - [Continue](#continue)
 - [Contributing](#contributing)
     - [Contributors](#contributors)
@@ -59,12 +61,13 @@ You should always be very careful when working with electronics! We will not acc
 
 Before you can complete this tutorial there are some prerequisites.
 
-## STLs For 3D Printing Tutorial
+## HIAS - Hospital Intelligent Automation System
+You will need a full installation of the [HIAS server](https://github.com/LeukemiaAiResearch/HIAS) to use the full functionality of this project. You can use this project with a 3rd party IoT broker if you like but we do not provide the documentation for that.
 
+## STLs For 3D Printing Tutorial
 You need to have completed the [STLs For 3D Printing](../../STLs "STLs For 3D Printing") tutorial and printed the EMAR Mini parts. 
 
 ## Raspberry Pi 4 Tutorial
-
 You need to have completed the [Raspberry Pi 4](../../RPI4 "Raspberry Pi 4") tutorial and setup your EMAR Mini.
 
 &nbsp;
